@@ -1,0 +1,232 @@
+\hypertarget{final__robot_8cpp}{}\doxysection{final\+\_\+assignment/src/final\+\_\+robot.cpp File Reference}
+\label{final__robot_8cpp}\index{final\_assignment/src/final\_robot.cpp@{final\_assignment/src/final\_robot.cpp}}
+
+
+S\+L\+AM with Gmapping and Moving Base.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$chrono$>$}\newline
+{\ttfamily \#include \char`\"{}ros/ros.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}geometry\+\_\+msgs/\+Twist.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sensor\+\_\+msgs/\+Laser\+Scan.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}actionlib\+\_\+msgs/\+Goal\+I\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}move\+\_\+base\+\_\+msgs/\+Move\+Base\+Action\+Goal.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}move\+\_\+base\+\_\+msgs/\+Move\+Base\+Action\+Feedback.\+h\char`\"{}}\newline
+Include dependency graph for final\+\_\+robot.\+cpp\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{final__robot_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_ab8a17bd7aebfe396839620a814ec3e4d}\label{final__robot_8cpp_ab8a17bd7aebfe396839620a814ec3e4d}} 
+\#define {\bfseries D\+I\+ST}~0.\+35
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a37f19123b1bf294dc694a2f59a9c28b7}\label{final__robot_8cpp_a37f19123b1bf294dc694a2f59a9c28b7}} 
+\#define {\bfseries P\+O\+S\+\_\+\+E\+R\+R\+OR}~0.\+5
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a5320d4457a472d8888ec1905bc0e0a1c}\label{final__robot_8cpp_a5320d4457a472d8888ec1905bc0e0a1c}} 
+\#define {\bfseries M\+A\+X\+\_\+\+T\+I\+ME}~120000000
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a4091342de85dcfd415c07a0c60323845}\label{final__robot_8cpp_a4091342de85dcfd415c07a0c60323845}} 
+void \mbox{\hyperlink{final__robot_8cpp_a4091342de85dcfd415c07a0c60323845}{manual\+Driving}} ()
+\begin{DoxyCompactList}\small\item\em Provide a user interface to drive the robot autonomously. A driving assistance can be enabled (or clearly disabled). \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{final__robot_8cpp_a4c43c60aa1f08799d4154361b6749d90}{driving\+Assistance}} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em R\+OS Callback Function\+: check data from the robot\textquotesingle{}s laser scanner and, if the driving assistance is enabled, help the user to not crush the robot against a wall. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{final__robot_8cpp_abe5ed94ffa1a53d79c5a39fa0f0b1b31}{current\+Status}} (const move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action\+Feedback\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em R\+OS Callback Function\+: check if the robot is on the goal position and, when there is a new goal, update the current Goal ID and save it in a global variable. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{final__robot_8cpp_ae4710b8905b07ffceb0b3c89d11db805}{current\+Goal}} (const move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action\+Goal\+::\+Const\+Ptr \&msg)
+\begin{DoxyCompactList}\small\item\em R\+OS Callback Function\+: check the current goal position and save its module coordinates x and y in two global variables. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{final__robot_8cpp_a66afd53d3ce40df879ca9ff842579460}{user\+Interface}} ()
+\begin{DoxyCompactList}\small\item\em Provide a user interface to choose the modality to drive the robot. The options are\+: \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{final__robot_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}{main}} (int argc, char $\ast$$\ast$argv)
+\begin{DoxyCompactList}\small\item\em Main function of the program. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{final__robot_8cpp_a0d82a9766a621565ed02ea5e7eeec843}\label{final__robot_8cpp_a0d82a9766a621565ed02ea5e7eeec843}} 
+void {\bfseries find\+Min\+Values} (const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&msg, float \&left, float \&mid, float \&right)
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a780ad19044ef9ffca6d2184cf9079181}\label{final__robot_8cpp_a780ad19044ef9ffca6d2184cf9079181}} 
+void {\bfseries check\+Max\+Time} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{final__robot_8cpp_ae057aae7fbba2a4cef62321020305295}{pub\+\_\+goal}}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{final__robot_8cpp_a96d80f80cfea8442d70360b35cebb05a}{pub\+\_\+canc}}
+\item 
+ros\+::\+Publisher \mbox{\hyperlink{final__robot_8cpp_ac0664a23d360105ec3d579965d5b7631}{pub\+\_\+vel}}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a57dccd06a6ac28217e5dda6009c4eb55}\label{final__robot_8cpp_a57dccd06a6ac28217e5dda6009c4eb55}} 
+float {\bfseries lin\+\_\+vel} = 0.\+0
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_ac4793035b5d8c1967e0c092d55e5d5df}\label{final__robot_8cpp_ac4793035b5d8c1967e0c092d55e5d5df}} 
+float {\bfseries ang\+\_\+vel} = 0.\+0
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_acad36f7a1211e9e9da68e181667d9c3f}\label{final__robot_8cpp_acad36f7a1211e9e9da68e181667d9c3f}} 
+char {\bfseries key}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_ad4da3964f1483bcab574a81efbc68ff5}\label{final__robot_8cpp_ad4da3964f1483bcab574a81efbc68ff5}} 
+int {\bfseries drive\+\_\+flag} = 0
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a38ccdf3249306f23bc68d35abc72d00c}\label{final__robot_8cpp_a38ccdf3249306f23bc68d35abc72d00c}} 
+int {\bfseries time\+\_\+flag} = 0
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_adf916204820072417ed73a32de1cefcf}\label{final__robot_8cpp_adf916204820072417ed73a32de1cefcf}} 
+int {\bfseries flag} = 0
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a0628e90b000ab05dcd77c8e7b5c8e511}\label{final__robot_8cpp_a0628e90b000ab05dcd77c8e7b5c8e511}} 
+int {\bfseries print\+\_\+flag} = 0
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a22d4ec3074b5dbbbc8a2225b7b23eead}\label{final__robot_8cpp_a22d4ec3074b5dbbbc8a2225b7b23eead}} 
+int {\bfseries counter1} = 10
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a4a83c833d1791f6e48fd7b0537ca23ec}\label{final__robot_8cpp_a4a83c833d1791f6e48fd7b0537ca23ec}} 
+int {\bfseries counter2}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a829831b69f522e8f5ae5dcdc28158d3e}\label{final__robot_8cpp_a829831b69f522e8f5ae5dcdc28158d3e}} 
+float {\bfseries x\+\_\+goal}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a20e8d23393e688fc52779c872bdc1e45}\label{final__robot_8cpp_a20e8d23393e688fc52779c872bdc1e45}} 
+float {\bfseries y\+\_\+goal}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_afd0d68c6d31ff249f3ae8662162663c3}\label{final__robot_8cpp_afd0d68c6d31ff249f3ae8662162663c3}} 
+std\+::string {\bfseries id} = \char`\"{}\char`\"{}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_a56dfe2d1d81baf89618ad0eea48492dd}\label{final__robot_8cpp_a56dfe2d1d81baf89618ad0eea48492dd}} 
+std\+::chrono\+::high\+\_\+resolution\+\_\+clock\+::time\+\_\+point {\bfseries t\+\_\+start}
+\item 
+\mbox{\Hypertarget{final__robot_8cpp_af809b6c0c27825d8deb9f5cdbd0709db}\label{final__robot_8cpp_af809b6c0c27825d8deb9f5cdbd0709db}} 
+std\+::chrono\+::high\+\_\+resolution\+\_\+clock\+::time\+\_\+point {\bfseries t\+\_\+end}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+S\+L\+AM with Gmapping and Moving Base. 
+
+Robotics control in a simulated environment Robotics Engineering
+
+This file contains the implementation of a simulation of a robot using R\+OS (Robot Operating System) with advanced capabilities like simultaneous localization and mapping (S\+L\+AM) and autonomous movement. The robot is equipped with laser scanners for obstacle detection and can be controlled through various interfaces, including user input, keyboard control, and driving assistance.
+
+\begin{DoxyAuthor}{Author}
+Parinaz 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+1.\+0 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+01/06/2023 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{final__robot_8cpp_ae4710b8905b07ffceb0b3c89d11db805}\label{final__robot_8cpp_ae4710b8905b07ffceb0b3c89d11db805}} 
+\index{final\_robot.cpp@{final\_robot.cpp}!currentGoal@{currentGoal}}
+\index{currentGoal@{currentGoal}!final\_robot.cpp@{final\_robot.cpp}}
+\doxysubsubsection{\texorpdfstring{currentGoal()}{currentGoal()}}
+{\footnotesize\ttfamily void current\+Goal (\begin{DoxyParamCaption}\item[{const move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action\+Goal\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+R\+OS Callback Function\+: check the current goal position and save its module coordinates x and y in two global variables. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The action goal message \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{final__robot_8cpp_abe5ed94ffa1a53d79c5a39fa0f0b1b31}\label{final__robot_8cpp_abe5ed94ffa1a53d79c5a39fa0f0b1b31}} 
+\index{final\_robot.cpp@{final\_robot.cpp}!currentStatus@{currentStatus}}
+\index{currentStatus@{currentStatus}!final\_robot.cpp@{final\_robot.cpp}}
+\doxysubsubsection{\texorpdfstring{currentStatus()}{currentStatus()}}
+{\footnotesize\ttfamily void current\+Status (\begin{DoxyParamCaption}\item[{const move\+\_\+base\+\_\+msgs\+::\+Move\+Base\+Action\+Feedback\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+R\+OS Callback Function\+: check if the robot is on the goal position and, when there is a new goal, update the current Goal ID and save it in a global variable. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The action feedback message \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{final__robot_8cpp_a4c43c60aa1f08799d4154361b6749d90}\label{final__robot_8cpp_a4c43c60aa1f08799d4154361b6749d90}} 
+\index{final\_robot.cpp@{final\_robot.cpp}!drivingAssistance@{drivingAssistance}}
+\index{drivingAssistance@{drivingAssistance}!final\_robot.cpp@{final\_robot.cpp}}
+\doxysubsubsection{\texorpdfstring{drivingAssistance()}{drivingAssistance()}}
+{\footnotesize\ttfamily void driving\+Assistance (\begin{DoxyParamCaption}\item[{const sensor\+\_\+msgs\+::\+Laser\+Scan\+::\+Const\+Ptr \&}]{msg }\end{DoxyParamCaption})}
+
+
+
+R\+OS Callback Function\+: check data from the robot\textquotesingle{}s laser scanner and, if the driving assistance is enabled, help the user to not crush the robot against a wall. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em msg} & The laser scan message \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{final__robot_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}\label{final__robot_8cpp_a3c04138a5bfe5d72780bb7e82a18e627}} 
+\index{final\_robot.cpp@{final\_robot.cpp}!main@{main}}
+\index{main@{main}!final\_robot.cpp@{final\_robot.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$$\ast$}]{argv }\end{DoxyParamCaption})}
+
+
+
+Main function of the program. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & Number of command-\/line arguments \\
+\hline
+{\em argv} & Array of command-\/line arguments \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 on successful execution 
+\end{DoxyReturn}
+\mbox{\Hypertarget{final__robot_8cpp_a66afd53d3ce40df879ca9ff842579460}\label{final__robot_8cpp_a66afd53d3ce40df879ca9ff842579460}} 
+\index{final\_robot.cpp@{final\_robot.cpp}!userInterface@{userInterface}}
+\index{userInterface@{userInterface}!final\_robot.cpp@{final\_robot.cpp}}
+\doxysubsubsection{\texorpdfstring{userInterface()}{userInterface()}}
+{\footnotesize\ttfamily void user\+Interface (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Provide a user interface to choose the modality to drive the robot. The options are\+: 
+
+
+\begin{DoxyEnumerate}
+\item Automatic driving (insert the coordinates to reach). 1.\+1 It is also possible to cancel the current goal.
+\item Manual driving (without driving assistance).
+\item Manual driving (with driving assistance); 3.\+1 The driving assistance can be simply enabled or disabled. 
+\end{DoxyEnumerate}
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{final__robot_8cpp_a96d80f80cfea8442d70360b35cebb05a}\label{final__robot_8cpp_a96d80f80cfea8442d70360b35cebb05a}} 
+\index{final\_robot.cpp@{final\_robot.cpp}!pub\_canc@{pub\_canc}}
+\index{pub\_canc@{pub\_canc}!final\_robot.cpp@{final\_robot.cpp}}
+\doxysubsubsection{\texorpdfstring{pub\_canc}{pub\_canc}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub\+\_\+canc}
+
+Publisher for canceling the current goal \mbox{\Hypertarget{final__robot_8cpp_ae057aae7fbba2a4cef62321020305295}\label{final__robot_8cpp_ae057aae7fbba2a4cef62321020305295}} 
+\index{final\_robot.cpp@{final\_robot.cpp}!pub\_goal@{pub\_goal}}
+\index{pub\_goal@{pub\_goal}!final\_robot.cpp@{final\_robot.cpp}}
+\doxysubsubsection{\texorpdfstring{pub\_goal}{pub\_goal}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub\+\_\+goal}
+
+Publisher for sending goal positions \mbox{\Hypertarget{final__robot_8cpp_ac0664a23d360105ec3d579965d5b7631}\label{final__robot_8cpp_ac0664a23d360105ec3d579965d5b7631}} 
+\index{final\_robot.cpp@{final\_robot.cpp}!pub\_vel@{pub\_vel}}
+\index{pub\_vel@{pub\_vel}!final\_robot.cpp@{final\_robot.cpp}}
+\doxysubsubsection{\texorpdfstring{pub\_vel}{pub\_vel}}
+{\footnotesize\ttfamily ros\+::\+Publisher pub\+\_\+vel}
+
+Publisher for sending robot velocities 
