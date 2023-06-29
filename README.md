@@ -176,7 +176,7 @@ END FUNCTION
 ## Documentation
 
 The documentation for this project is generated with Doxygen.
-[Click here to view the Doxygen documentation.](file:///home/parinaz/RT3/doc/html/index.html)
+[Click here to view the Doxygen documentation.]([file:///home/parinaz/RT3/doc/html/index.html](https://parinazrmp.github.io/SLAM_with_Gmapping_and_Moving_Base/final__robot_8cpp.html))
 
 ## Simulation_and_Results
 
