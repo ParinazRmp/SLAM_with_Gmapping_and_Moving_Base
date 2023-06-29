@@ -14,6 +14,7 @@ Control of a robot in a simulated environment.
     <li><a href="#Fauctionality">Fauctionality</a></li>
     <li><a href="#How_it_works">How_it_works</a></li>
     <li><a href="#PseudoCode">PseudoCode</a></li>
+    <li><a href="#Documentation">Documentation</a></li>
     <li><a href="#Simulation_and_Results">Simulation_and_Results</a></li>
     <li><a href="#Improving_Robot_Movement">Improving_Robot_Movement</a></li>
   </ol>
@@ -172,6 +173,10 @@ FUNCTION main WITH (argc, argv)
 END FUNCTION
 
 </code></pre>
+## Documentation
+
+The documentation for this project is generated with Doxygen.
+[Click here to view the Doxygen documentation.](file:///home/parinaz/RT3/doc/html/index.html)
 
 ## Simulation_and_Results
 
