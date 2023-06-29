@@ -59,7 +59,7 @@ Installing the ROS Navigation package:
 
 Once the packages are installed, clone this repository into your desired location using the following command:
 
-<pre><code>git clone https://github.com/ParinazRmp/SLAM-with-Gmapping-and-Moving-Base.git </code></pre>
+<pre><code>git clone https://github.com/ParinazRmp/SLAM_with_Gmapping_and_Moving_Base.git </code></pre>
 
 Move the "final_assignment" folder into the "src" folder of your ROS workspace. Navigate to the root folder of your ROS workspace and run the command:
 <pre><code>catkin_make</code></pre>
