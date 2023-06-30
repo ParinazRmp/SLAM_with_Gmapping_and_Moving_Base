@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="gtest_2googletest_2_c_make_files_2gtest_8dir_2link_8txt" kind="file" language="C++">
+    <compoundname>link.txt</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="gtest_2googletest_2_c_make_files_2gtest_8dir_2link_8txt_1a6091ea4435b85aea8faa6ca9f72c34bc" prot="public" static="no" mutable="no">
+        <type>usr bin c fPIC shared</type>
+        <definition>usr bin c fPIC shared Wl</definition>
+        <argsstring></argsstring>
+        <name>Wl</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/parinaz/RT3/RT13P/build/gtest/googletest/CMakeFiles/gtest.dir/link.txt" line="1" column="23" bodyfile="/home/parinaz/RT3/RT13P/build/gtest/googletest/CMakeFiles/gtest.dir/link.txt" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="gtest_2googletest_2_c_make_files_2gtest_8dir_2link_8txt_1a2f791bdd1923e79230111de3ad08a972" prot="public" static="no" mutable="no">
+        <type>usr bin c fPIC shared</type>
+        <definition>usr bin c fPIC shared soname</definition>
+        <argsstring></argsstring>
+        <name>soname</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/parinaz/RT3/RT13P/build/gtest/googletest/CMakeFiles/gtest.dir/link.txt" line="1" column="25" bodyfile="/home/parinaz/RT3/RT13P/build/gtest/googletest/CMakeFiles/gtest.dir/link.txt" bodystart="1" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal">/usr/bin/c++<sp/>-fPIC<sp/><sp/><sp/>-shared<sp/>-Wl,-soname,libgtest.so<sp/>-o<sp/>../lib/libgtest.so<sp/>CMakeFiles/gtest.dir/src/gtest-all.cc.o<sp/><sp/>-lpthread<sp/></highlight></codeline>
+    </programlisting>
+    <location file="/home/parinaz/RT3/RT13P/build/gtest/googletest/CMakeFiles/gtest.dir/link.txt"/>
+  </compounddef>
+</doxygen>

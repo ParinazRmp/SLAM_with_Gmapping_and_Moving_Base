@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="dir_738c8aa55f7d1b46d5d705b1c6094172" kind="dir">
+    <compoundname>/home/parinaz/RT3/RT13P/build/atomic_configure</compoundname>
+    <innerfile refid="build_2atomic__configure_2__setup__util_8py">_setup_util.py</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/parinaz/RT3/RT13P/build/atomic_configure/"/>
+  </compounddef>
+</doxygen>

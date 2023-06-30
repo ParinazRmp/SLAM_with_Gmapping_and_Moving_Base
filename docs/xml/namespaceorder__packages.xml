@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="namespaceorder__packages" kind="namespace" language="Python">
+    <compoundname>order_packages</compoundname>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="order__packages_8py_1aff4fd297841de7fbddc2c0c33a6bab21" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string order_packages.source_root_dir</definition>
+        <argsstring></argsstring>
+        <name>source_root_dir</name>
+        <initializer>=  &apos;/home/parinaz/RT3/RT13P/src&apos;</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" line="2" column="1" bodyfile="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" bodystart="2" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="order__packages_8py_1a84450a73e77dbf3689293b97dcb697a4" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string order_packages.whitelisted_packages</definition>
+        <argsstring></argsstring>
+        <name>whitelisted_packages</name>
+        <initializer>=  &apos;&apos; else []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" line="3" column="1" bodyfile="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" bodystart="3" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="order__packages_8py_1a29ea913f00c5a0e81d3c7688e7375507" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string order_packages.blacklisted_packages</definition>
+        <argsstring></argsstring>
+        <name>blacklisted_packages</name>
+        <initializer>=  &apos;&apos; else []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" line="4" column="1" bodyfile="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" bodystart="4" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="order__packages_8py_1a11d102ff09fd2977b9075c4c722015d2" prot="public" static="no" mutable="no">
+        <type>string</type>
+        <definition>string order_packages.underlay_workspaces</definition>
+        <argsstring></argsstring>
+        <name>underlay_workspaces</name>
+        <initializer>=  &apos;&apos; else []</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" line="5" column="1" bodyfile="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" bodystart="5" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/parinaz/RT3/RT13P/build/catkin_generated/order_packages.py" line="1" column="1"/>
+  </compounddef>
+</doxygen>
