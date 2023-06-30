@@ -1,0 +1,200 @@
+Table of Contents
+
+Welcome to the S\+L\+AM with Gmapping and Moving Base project! This repository contains a simulation of a robot using R\+OS (Robot Operating System) with advanced capabilities like simultaneous localization and mapping (S\+L\+AM) and autonomous movement. The robot is equipped with laser scanners for obstacle detection and can be controlled through various interfaces, including user input, keyboard control, and driving assistance. ~\newline
+
+
+Control of a robot in a simulated environment.
+
+$<$details$>$
+
+
+\begin{DoxyEnumerate}
+\item \href{\#Introduction}{\texttt{ Introduction}} 
+\item \href{\#Installation_and_Running}{\texttt{ Installation\+\_\+and\+\_\+\+Running}} 
+\item \href{\#Fauctionality}{\texttt{ Fauctionality}} 
+\item \href{\#How_it_works}{\texttt{ How\+\_\+it\+\_\+works}} 
+\item \href{\#PseudoCode}{\texttt{ Pseudo\+Code}} 
+\item \href{\#Documentation}{\texttt{ Documentation}} 
+\item \href{\#Simulation_and_Results}{\texttt{ Simulation\+\_\+and\+\_\+\+Results}} 
+\item \href{\#Improving_Robot_Movement}{\texttt{ Improving\+\_\+\+Robot\+\_\+\+Movement}} 
+\end{DoxyEnumerate}$<$/details$>$\hypertarget{md__r_e_a_d_m_e_autotoc_md1}{}\doxysection{Introduction}\label{md__r_e_a_d_m_e_autotoc_md1}
+The goal of this project is to develop an autonomous robot capable of navigating through a predefined map using S\+L\+AM techniques. The robot\textquotesingle{}s movements can be controlled in different ways to facilitate easy interaction and testing. This R\+E\+A\+D\+ME will guide you through the installation process and explain how to use the different functionalities provided.~\newline
+
+
+This program manages a robot, endowed with laser scanners, which should move autonomously inside a map.~\newline
+ You can use the user interface to\+: 
+\begin{DoxyEnumerate}
+\item Let the robot autonomously reach a x,y coordinate inserted by the command line. 
+\item Drive the robot with the keyboard. 
+\item Drive the robot with the keyboard availing of simple driving assistance. 
+\end{DoxyEnumerate}
+
+The map is this one\+:~\newline
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md2}{}\doxysubsection{Gazebo\+:}\label{md__r_e_a_d_m_e_autotoc_md2}
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md3}{}\doxysubsection{Rviz\+:}\label{md__r_e_a_d_m_e_autotoc_md3}
+ \hypertarget{md__r_e_a_d_m_e_autotoc_md4}{}\doxysection{Installation\+\_\+and\+\_\+\+Running}\label{md__r_e_a_d_m_e_autotoc_md4}
+To get started, you need to install the R\+OS Navigation package, R\+OS move\+\_\+base package, and R\+OS Gmapping package. Run the following commands to install the required packages\+:
+
+Installing the R\+OS Navigation package\+: 
+\begin{DoxyPre}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt-\/get install ros-\/noetic-\/navigation}
+\end{DoxyCode}
+\end{DoxyPre}
+ 
+\begin{DoxyPre}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt-\/get install ros-\/noetic-\/move-\/base}
+\end{DoxyCode}
+\end{DoxyPre}
+ 
+\begin{DoxyPre}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt-\/get install ros-\/noetic-\/gmapping }
+\end{DoxyCode}
+\end{DoxyPre}
+
+
+Once the packages are installed, clone this repository into your desired location using the following command\+:
+
+
+\begin{DoxyPre}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git clone https://github.com/ParinazRmp/SLAM\_with\_Gmapping\_and\_Moving\_Base.git }
+\end{DoxyCode}
+\end{DoxyPre}
+
+
+Move the \char`\"{}final\+\_\+assignment\char`\"{} folder into the \char`\"{}src\char`\"{} folder of your R\+OS workspace. Navigate to the root folder of your R\+OS workspace and run the command\+: 
+\begin{DoxyPre}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{catkin\_make}
+\end{DoxyCode}
+\end{DoxyPre}
+
+
+Make sure you have the xterm tool installed on your system. If not, install it using the command\+:
+
+
+\begin{DoxyPre}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{sudo apt install xterm}
+\end{DoxyCode}
+\end{DoxyPre}
+
+
+Now you\textquotesingle{}re ready to launch the simulation. Open a terminal and run the following command\+:
+
+
+\begin{DoxyPre}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{roslaunch final\_assignment final\_assignment.launch}
+\end{DoxyCode}
+\end{DoxyPre}
+\hypertarget{md__r_e_a_d_m_e_autotoc_md5}{}\doxysection{Fauctionality}\label{md__r_e_a_d_m_e_autotoc_md5}
+The robot simulation provides the following functionalities\+:
+
+
+\begin{DoxyEnumerate}
+\item Autonomous Navigation\+: You can command the robot to autonomously navigate to specific x,y coordinates by providing them through the command line.
+\item Keyboard Control\+: You can manually control the robot\textquotesingle{}s movement using keyboard inputs. A list of available commands will be displayed in the console.
+\item Driving Assistance\+: The robot can be driven with the keyboard while benefiting from a driving assistance feature. The assistance system uses laser scanner data to detect obstacles and helps prevent collisions.
+\end{DoxyEnumerate}\hypertarget{md__r_e_a_d_m_e_autotoc_md6}{}\doxysection{How\+\_\+it\+\_\+works}\label{md__r_e_a_d_m_e_autotoc_md6}
+The simulation uses the \char`\"{}simulation\+\_\+gmapping.\+launch\char`\"{} file to run the simulated environment and the \char`\"{}move\+\_\+base.\+launch\char`\"{} file to execute the move\+\_\+base action. The move\+\_\+base action provides topics such as 
+\begin{DoxyItemize}
+\item move\+\_\+base/goal to publish the goal position; 
+\item move\+\_\+base/feedback to receive the feedback; 
+\item move\+\_\+base/cancel to cancel the current goal. 
+\end{DoxyItemize}
+
+The simulation uses the \char`\"{}simulation\+\_\+gmapping.\+launch\char`\"{} file to run the simulated environment and the \char`\"{}move\+\_\+base.\+launch\char`\"{} file to execute the move\+\_\+base action. The move\+\_\+base action provides topics such as \char`\"{}move\+\_\+base/goal\char`\"{} for publishing the goal position, \char`\"{}move\+\_\+base/feedback\char`\"{} for receiving feedback, and \char`\"{}move\+\_\+base/cancel\char`\"{} for canceling the current goal.
+
+The simulation employs three subscribers that run concurrently using the R\+OS Async\+Spinner class, enabling a multi-\/threaded architecture. These subscribers are responsible for\+:
+
+
+\begin{DoxyItemize}
+\item Monitoring the feedback from the robot\textquotesingle{}s movement and checking if the goal position has been reached.
+\item Tracking the current goal coordinates.
+\item Processing laser scanner data and providing driving assistance if enabled. The robot can autonomously navigate to a goal position, cancel the current goal, or be manually driven using keyboard commands.
+\end{DoxyItemize}\hypertarget{md__r_e_a_d_m_e_autotoc_md7}{}\doxysubsection{Pseudo\+Code}\label{md__r_e_a_d_m_e_autotoc_md7}
+The core behavior of the program can be described using the following pseudocode\+: 
+\begin{DoxyPre}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{FUNCTION manualDriving}
+\DoxyCodeLine{    WHILE user input is not to quit}
+\DoxyCodeLine{        TAKE user input through the keyboard}
+\DoxyCodeLine{        EXECUTE corresponding task}
+\DoxyCodeLine{        PUBLISH new robot velocity}
+\DoxyCodeLine{    END WHILE}
+\DoxyCodeLine{END FUNCTION}
+\DoxyCodeLine{}
+\DoxyCodeLine{FUNCTION drivingAssistance WITH (msg)}
+\DoxyCodeLine{    COMPUTE minimum distance on the right}
+\DoxyCodeLine{    COMPUTE minimum distance in the middle}
+\DoxyCodeLine{    COMPUTE minimum distance on the left}
+\DoxyCodeLine{}
+\DoxyCodeLine{    IF driving assistance is enabled AND the robot is going against a wall THEN}
+\DoxyCodeLine{        SET robot velocity TO 0}
+\DoxyCodeLine{        PUBLISH robot velocity}
+\DoxyCodeLine{    END IF}
+\DoxyCodeLine{}
+\DoxyCodeLine{    IF a goal position is set THEN}
+\DoxyCodeLine{        COMPUTE the time elapsed}
+\DoxyCodeLine{        IF the time elapsed IS GREATER THAN 120 seconds THEN}
+\DoxyCodeLine{            DELETE current goal}
+\DoxyCodeLine{        END IF}
+\DoxyCodeLine{    END IF}
+\DoxyCodeLine{END FUNCTION}
+\DoxyCodeLine{}
+\DoxyCodeLine{FUNCTION currentStatus WITH (msg) }
+\DoxyCodeLine{    SET current robot position}
+\DoxyCodeLine{    COMPUTE the difference between the current robot position and the current goal position}
+\DoxyCodeLine{    IF the difference IS LESS THAN 0.5 THEN}
+\DoxyCodeLine{        STOP to compute the elapsed time}
+\DoxyCodeLine{    END IF}
+\DoxyCodeLine{END FUNCTION}
+\DoxyCodeLine{}
+\DoxyCodeLine{FUNCTION currentGoal WITH (msg)}
+\DoxyCodeLine{    SET current goal position}
+\DoxyCodeLine{END FUNCTION}
+\DoxyCodeLine{}
+\DoxyCodeLine{FUNCTION userInterface }
+\DoxyCodeLine{    WHILE user input is not to quit}
+\DoxyCodeLine{        TAKE user input through the keyboard}
+\DoxyCodeLine{        EXECUTE corresponding task}
+\DoxyCodeLine{    END WHILE}
+\DoxyCodeLine{END FUNCTION}
+\DoxyCodeLine{}
+\DoxyCodeLine{FUNCTION main WITH (argc, argv)}
+\DoxyCodeLine{    INITIALIZE the node "final\_robot"}
+\DoxyCodeLine{}
+\DoxyCodeLine{    SET the first publisher TO "move\_base/goal"}
+\DoxyCodeLine{    SET the second publisher TO "move\_base/cancel"}
+\DoxyCodeLine{    SET the third publisher TO "cmd\_vel"}
+\DoxyCodeLine{}
+\DoxyCodeLine{    SET the first subscriber TO "/move\_base/feedback" WITH currentStatus}
+\DoxyCodeLine{    SET the second subscriber TO "/move\_base/goal" WITH currentGoal}
+\DoxyCodeLine{    SET the third subscriber TO "/scan" WITH drivingAssistance}
+\DoxyCodeLine{}
+\DoxyCodeLine{    INITIALIZE spinner WITH 3 threads}
+\DoxyCodeLine{    START spinner}
+\DoxyCodeLine{    CALL userInterface}
+\DoxyCodeLine{    STOP spinner}
+\DoxyCodeLine{    CALL ros::shutdown}
+\DoxyCodeLine{    CALL ros::waitForShutdown}
+\DoxyCodeLine{}
+\DoxyCodeLine{    RETURN 0}
+\DoxyCodeLine{END FUNCTION}
+\end{DoxyCode}
+\end{DoxyPre}
+ \#\# Documentation
+
+The documentation for this project is generated with Doxygen. \href{https://parinazrmp.github.io/SLAM_with_Gmapping_and_Moving_Base/}{\texttt{ Click here to view the Doxygen documentation.}}\hypertarget{md__r_e_a_d_m_e_autotoc_md8}{}\doxysection{Simulation\+\_\+and\+\_\+\+Results}\label{md__r_e_a_d_m_e_autotoc_md8}
+To see the simulation in action and review the results, please watch the following video\+:
+
+\href{https://user-images.githubusercontent.com/94115975/226293056-0559827e-3d23-459a-bca2-ee245631cdf8.mp4}{\texttt{ https\+://user-\/images.\+githubusercontent.\+com/94115975/226293056-\/0559827e-\/3d23-\/459a-\/bca2-\/ee245631cdf8.\+mp4}}
+
+\hypertarget{md__r_e_a_d_m_e_autotoc_md9}{}\doxysection{Robot\+\_\+\+Movement\+\_\+\+Improvement}\label{md__r_e_a_d_m_e_autotoc_md9}
+One possible improvement for the driving assistance feature is to implement a smart algorithm that guides the robot in the right direction when it encounters an obstacle, instead of merely stopping it. This enhancement would improve the user experience and make the driving assistance more intuitive and efficient.
+
+Feel free to explore and modify the code to implement additional improvements or functionalities based on your specific requirements and use cases. 
