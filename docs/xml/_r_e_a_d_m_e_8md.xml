@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="_r_e_a_d_m_e_8md" kind="file" language="Markdown">
+    <compoundname>README.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>SLAM<sp/>with<sp/>Gmapping<sp/>and<sp/>Moving<sp/>Base</highlight></codeline>
+<codeline><highlight class="normal">Welcome<sp/>to<sp/>the<sp/>SLAM<sp/>with<sp/>Gmapping<sp/>and<sp/>Moving<sp/>Base<sp/>project!<sp/>This<sp/>repository<sp/>contains<sp/>a<sp/>simulation<sp/>of<sp/>a<sp/>robot<sp/>using<sp/>ROS<sp/>(Robot<sp/>Operating<sp/>System)<sp/>with<sp/>advanced<sp/>capabilities<sp/>like<sp/>simultaneous<sp/>localization<sp/>and<sp/>mapping<sp/>(SLAM)<sp/>and<sp/>autonomous<sp/>movement.<sp/>The<sp/>robot<sp/>is<sp/>equipped<sp/>with<sp/>laser<sp/>scanners<sp/>for<sp/>obstacle<sp/>detection<sp/>and<sp/>can<sp/>be<sp/>controlled<sp/>through<sp/>various<sp/>interfaces,<sp/>including<sp/>user<sp/>input,<sp/>keyboard<sp/>control,<sp/>and<sp/>driving<sp/>assistance.</highlight></codeline>
+<codeline><highlight class="normal">&lt;br&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Control<sp/>of<sp/>a<sp/>robot<sp/>in<sp/>a<sp/>simulated<sp/>environment.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;!--<sp/>TABLE<sp/>OF<sp/>CONTENTS<sp/>--&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;details&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;summary&gt;Table<sp/>of<sp/>Contents&lt;/summary&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;ol&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;&lt;a<sp/>href=&quot;#Introduction&quot;&gt;Introduction&lt;/a&gt;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;&lt;a<sp/>href=&quot;#Installation_and_Running&quot;&gt;Installation_and_Running&lt;/a&gt;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;&lt;a<sp/>href=&quot;#Fauctionality&quot;&gt;Fauctionality&lt;/a&gt;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;&lt;a<sp/>href=&quot;#How_it_works&quot;&gt;How_it_works&lt;/a&gt;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;&lt;a<sp/>href=&quot;#PseudoCode&quot;&gt;PseudoCode&lt;/a&gt;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;&lt;a<sp/>href=&quot;#Documentation&quot;&gt;Documentation&lt;/a&gt;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;&lt;a<sp/>href=&quot;#Simulation_and_Results&quot;&gt;Simulation_and_Results&lt;/a&gt;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;&lt;a<sp/>href=&quot;#Improving_Robot_Movement&quot;&gt;Improving_Robot_Movement&lt;/a&gt;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>&lt;/ol&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/details&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Introduction</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>goal<sp/>of<sp/>this<sp/>project<sp/>is<sp/>to<sp/>develop<sp/>an<sp/>autonomous<sp/>robot<sp/>capable<sp/>of<sp/>navigating<sp/>through<sp/>a<sp/>predefined<sp/>map<sp/>using<sp/>SLAM<sp/>techniques.<sp/>The<sp/>robot&apos;s<sp/>movements<sp/>can<sp/>be<sp/>controlled<sp/>in<sp/>different<sp/>ways<sp/>to<sp/>facilitate<sp/>easy<sp/>interaction<sp/>and<sp/>testing.<sp/>This<sp/>README<sp/>will<sp/>guide<sp/>you<sp/>through<sp/>the<sp/>installation<sp/>process<sp/>and<sp/>explain<sp/>how<sp/>to<sp/>use<sp/>the<sp/>different<sp/>functionalities<sp/>provided.&lt;br&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;!--<sp/>In<sp/>this<sp/>project,<sp/>it<sp/>is<sp/>supposed<sp/>to<sp/>move<sp/>and<sp/>control<sp/>this<sp/>robot<sp/>autonomously<sp/>without<sp/>any<sp/>collision<sp/>with<sp/>the<sp/>walls<sp/>surrounding<sp/>the<sp/>whole<sp/>complex<sp/>path.<sp/>Meanwhile,<sp/>it<sp/>is<sp/>also<sp/>essential<sp/>to<sp/>have<sp/>a<sp/>simple<sp/>user<sp/>interface<sp/>to<sp/>communicate<sp/>with<sp/>the<sp/>robot<sp/>in<sp/>the<sp/>case<sp/>of<sp/>increasing/decreasing<sp/>the<sp/>speed,<sp/>resetting<sp/>the<sp/>robot<sp/>position,<sp/>etc.<sp/>In<sp/>addition,<sp/>it<sp/>is<sp/>worth<sp/>mentioning<sp/>that<sp/>all<sp/>requirements<sp/>should<sp/>not<sp/>be<sp/>considered<sp/>in<sp/>more<sp/>than<sp/>two<sp/>nodes.</highlight></codeline>
+<codeline><highlight class="normal"><sp/>--&gt;</highlight></codeline>
+<codeline><highlight class="normal">This<sp/>program<sp/>manages<sp/>a<sp/>robot,<sp/>endowed<sp/>with<sp/>laser<sp/>scanners,<sp/>which<sp/>should<sp/>move<sp/>autonomously<sp/>inside<sp/>a<sp/>map.&lt;br&gt;</highlight></codeline>
+<codeline><highlight class="normal">You<sp/>can<sp/>use<sp/>the<sp/>user<sp/>interface<sp/>to:</highlight></codeline>
+<codeline><highlight class="normal">&lt;ol&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;Let<sp/>the<sp/>robot<sp/>autonomously<sp/>reach<sp/>a<sp/>x,y<sp/>coordinate<sp/>inserted<sp/>by<sp/>the<sp/>command<sp/>line.&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;Drive<sp/>the<sp/>robot<sp/>with<sp/>the<sp/>keyboard.&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;Drive<sp/>the<sp/>robot<sp/>with<sp/>the<sp/>keyboard<sp/>availing<sp/>of<sp/>simple<sp/>driving<sp/>assistance.&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/ol&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>map<sp/>is<sp/>this<sp/>one:&lt;br&gt;</highlight></codeline>
+<codeline><highlight class="normal">###<sp/>Gazebo:</highlight></codeline>
+<codeline><highlight class="normal">&lt;p<sp/>align=&quot;center&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;img<sp/>src=&quot;https://user-images.githubusercontent.com/94115975/221689972-e9425967-7ca6-4488-aab5-f66a1d31d0a5.png&quot;<sp/>width=&quot;900&quot;<sp/>height=&quot;500&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/p&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>Rviz:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;p<sp/>align=&quot;center&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;img<sp/>src=&quot;https://user-images.githubusercontent.com/94115975/221690077-f9f397e6-4ba1-4c01-b25a-99ee7c71c638.png&quot;<sp/>width=&quot;900&quot;<sp/>height=&quot;500&quot;&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/p&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Installation_and_Running</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>get<sp/>started,<sp/>you<sp/>need<sp/>to<sp/>install<sp/>the<sp/>ROS<sp/>Navigation<sp/>package,<sp/>ROS<sp/>move_base<sp/>package,<sp/>and<sp/>ROS<sp/>Gmapping<sp/>package.<sp/>Run<sp/>the<sp/>following<sp/>commands<sp/>to<sp/>install<sp/>the<sp/>required<sp/>packages:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Installing<sp/>the<sp/>ROS<sp/>Navigation<sp/>package:<sp/></highlight></codeline>
+<codeline><highlight class="normal">&lt;pre&gt;&lt;code&gt;sudo<sp/>apt-get<sp/>install<sp/>ros-noetic-navigation&lt;/code&gt;&lt;/pre&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;pre&gt;&lt;code&gt;sudo<sp/>apt-get<sp/>install<sp/>ros-noetic-move-base&lt;/code&gt;&lt;/pre&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;pre&gt;&lt;code&gt;<sp/>sudo<sp/>apt-get<sp/>install<sp/>ros-noetic-gmapping<sp/>&lt;/code&gt;&lt;/pre&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Once<sp/>the<sp/>packages<sp/>are<sp/>installed,<sp/>clone<sp/>this<sp/>repository<sp/>into<sp/>your<sp/>desired<sp/>location<sp/>using<sp/>the<sp/>following<sp/>command:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;pre&gt;&lt;code&gt;git<sp/>clone<sp/>https://github.com/ParinazRmp/SLAM_with_Gmapping_and_Moving_Base.git<sp/>&lt;/code&gt;&lt;/pre&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Move<sp/>the<sp/>&quot;final_assignment&quot;<sp/>folder<sp/>into<sp/>the<sp/>&quot;src&quot;<sp/>folder<sp/>of<sp/>your<sp/>ROS<sp/>workspace.<sp/>Navigate<sp/>to<sp/>the<sp/>root<sp/>folder<sp/>of<sp/>your<sp/>ROS<sp/>workspace<sp/>and<sp/>run<sp/>the<sp/>command:</highlight></codeline>
+<codeline><highlight class="normal">&lt;pre&gt;&lt;code&gt;catkin_make&lt;/code&gt;&lt;/pre&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Make<sp/>sure<sp/>you<sp/>have<sp/>the<sp/>xterm<sp/>tool<sp/>installed<sp/>on<sp/>your<sp/>system.<sp/>If<sp/>not,<sp/>install<sp/>it<sp/>using<sp/>the<sp/>command:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;pre&gt;&lt;code&gt;sudo<sp/>apt<sp/>install<sp/>xterm&lt;/code&gt;&lt;/pre&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Now<sp/>you&apos;re<sp/>ready<sp/>to<sp/>launch<sp/>the<sp/>simulation.<sp/>Open<sp/>a<sp/>terminal<sp/>and<sp/>run<sp/>the<sp/>following<sp/>command:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;pre&gt;&lt;code&gt;roslaunch<sp/>final_assignment<sp/>final_assignment.launch&lt;/code&gt;&lt;/pre&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Fauctionality</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>robot<sp/>simulation<sp/>provides<sp/>the<sp/>following<sp/>functionalities:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">1.<sp/>Autonomous<sp/>Navigation:<sp/>You<sp/>can<sp/>command<sp/>the<sp/>robot<sp/>to<sp/>autonomously<sp/>navigate<sp/>to<sp/>specific<sp/>x,y<sp/>coordinates<sp/>by<sp/>providing<sp/>them<sp/>through<sp/>the<sp/>command<sp/>line.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">2.<sp/>Keyboard<sp/>Control:<sp/>You<sp/>can<sp/>manually<sp/>control<sp/>the<sp/>robot&apos;s<sp/>movement<sp/>using<sp/>keyboard<sp/>inputs.<sp/>A<sp/>list<sp/>of<sp/>available<sp/>commands<sp/>will<sp/>be<sp/>displayed<sp/>in<sp/>the<sp/>console.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">3.<sp/>Driving<sp/>Assistance:<sp/>The<sp/>robot<sp/>can<sp/>be<sp/>driven<sp/>with<sp/>the<sp/>keyboard<sp/>while<sp/>benefiting<sp/>from<sp/>a<sp/>driving<sp/>assistance<sp/>feature.<sp/>The<sp/>assistance<sp/>system<sp/>uses<sp/>laser<sp/>scanner<sp/>data<sp/>to<sp/>detect<sp/>obstacles<sp/>and<sp/>helps<sp/>prevent<sp/>collisions.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>How_it_works</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>simulation<sp/>uses<sp/>the<sp/>&quot;simulation_gmapping.launch&quot;<sp/>file<sp/>to<sp/>run<sp/>the<sp/>simulated<sp/>environment<sp/>and<sp/>the<sp/>&quot;move_base.launch&quot;<sp/>file<sp/>to<sp/>execute<sp/>the<sp/>move_base<sp/>action.<sp/>The<sp/>move_base<sp/>action<sp/>provides<sp/>topics<sp/>such<sp/>as<sp/></highlight></codeline>
+<codeline><highlight class="normal">&lt;ul&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;move_base/goal<sp/>to<sp/>publish<sp/>the<sp/>goal<sp/>position;&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;move_base/feedback<sp/>to<sp/>receive<sp/>the<sp/>feedback;&lt;/li&gt;<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>&lt;li&gt;move_base/cancel<sp/>to<sp/>cancel<sp/>the<sp/>current<sp/>goal.&lt;/li&gt;</highlight></codeline>
+<codeline><highlight class="normal">&lt;/ul&gt;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>simulation<sp/>uses<sp/>the<sp/>&quot;simulation_gmapping.launch&quot;<sp/>file<sp/>to<sp/>run<sp/>the<sp/>simulated<sp/>environment<sp/>and<sp/>the<sp/>&quot;move_base.launch&quot;<sp/>file<sp/>to<sp/>execute<sp/>the<sp/>move_base<sp/>action.<sp/>The<sp/>move_base<sp/>action<sp/>provides<sp/>topics<sp/>such<sp/>as<sp/>&quot;move_base/goal&quot;<sp/>for<sp/>publishing<sp/>the<sp/>goal<sp/>position,<sp/>&quot;move_base/feedback&quot;<sp/>for<sp/>receiving<sp/>feedback,<sp/>and<sp/>&quot;move_base/cancel&quot;<sp/>for<sp/>canceling<sp/>the<sp/>current<sp/>goal.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>simulation<sp/>employs<sp/>three<sp/>subscribers<sp/>that<sp/>run<sp/>concurrently<sp/>using<sp/>the<sp/>ROS<sp/>AsyncSpinner<sp/>class,<sp/>enabling<sp/>a<sp/>multi-threaded<sp/>architecture.<sp/>These<sp/>subscribers<sp/>are<sp/>responsible<sp/>for:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">-<sp/>Monitoring<sp/>the<sp/>feedback<sp/>from<sp/>the<sp/>robot&apos;s<sp/>movement<sp/>and<sp/>checking<sp/>if<sp/>the<sp/>goal<sp/>position<sp/>has<sp/>been<sp/>reached.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Tracking<sp/>the<sp/>current<sp/>goal<sp/>coordinates.</highlight></codeline>
+<codeline><highlight class="normal">-<sp/>Processing<sp/>laser<sp/>scanner<sp/>data<sp/>and<sp/>providing<sp/>driving<sp/>assistance<sp/>if<sp/>enabled.</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>robot<sp/>can<sp/>autonomously<sp/>navigate<sp/>to<sp/>a<sp/>goal<sp/>position,<sp/>cancel<sp/>the<sp/>current<sp/>goal,<sp/>or<sp/>be<sp/>manually<sp/>driven<sp/>using<sp/>keyboard<sp/>commands.</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">###<sp/>PseudoCode</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>core<sp/>behavior<sp/>of<sp/>the<sp/>program<sp/>can<sp/>be<sp/>described<sp/>using<sp/>the<sp/>following<sp/>pseudocode:</highlight></codeline>
+<codeline><highlight class="normal">&lt;pre&gt;&lt;code&gt;</highlight></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>manualDriving</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>WHILE<sp/>user<sp/>input<sp/>is<sp/>not<sp/>to<sp/>quit</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TAKE<sp/>user<sp/>input<sp/>through<sp/>the<sp/>keyboard</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXECUTE<sp/>corresponding<sp/>task</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PUBLISH<sp/>new<sp/>robot<sp/>velocity</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>WHILE</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>drivingAssistance<sp/>WITH<sp/>(msg)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COMPUTE<sp/>minimum<sp/>distance<sp/>on<sp/>the<sp/>right</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COMPUTE<sp/>minimum<sp/>distance<sp/>in<sp/>the<sp/>middle</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COMPUTE<sp/>minimum<sp/>distance<sp/>on<sp/>the<sp/>left</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IF<sp/>driving<sp/>assistance<sp/>is<sp/>enabled<sp/>AND<sp/>the<sp/>robot<sp/>is<sp/>going<sp/>against<sp/>a<sp/>wall<sp/>THEN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SET<sp/>robot<sp/>velocity<sp/>TO<sp/>0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PUBLISH<sp/>robot<sp/>velocity</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>IF</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IF<sp/>a<sp/>goal<sp/>position<sp/>is<sp/>set<sp/>THEN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>COMPUTE<sp/>the<sp/>time<sp/>elapsed</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IF<sp/>the<sp/>time<sp/>elapsed<sp/>IS<sp/>GREATER<sp/>THAN<sp/>120<sp/>seconds<sp/>THEN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DELETE<sp/>current<sp/>goal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>END<sp/>IF</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>IF</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>currentStatus<sp/>WITH<sp/>(msg)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>current<sp/>robot<sp/>position</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COMPUTE<sp/>the<sp/>difference<sp/>between<sp/>the<sp/>current<sp/>robot<sp/>position<sp/>and<sp/>the<sp/>current<sp/>goal<sp/>position</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IF<sp/>the<sp/>difference<sp/>IS<sp/>LESS<sp/>THAN<sp/>0.5<sp/>THEN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>STOP<sp/>to<sp/>compute<sp/>the<sp/>elapsed<sp/>time</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>IF</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>currentGoal<sp/>WITH<sp/>(msg)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>current<sp/>goal<sp/>position</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>userInterface<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>WHILE<sp/>user<sp/>input<sp/>is<sp/>not<sp/>to<sp/>quit</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TAKE<sp/>user<sp/>input<sp/>through<sp/>the<sp/>keyboard</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXECUTE<sp/>corresponding<sp/>task</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>WHILE</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>main<sp/>WITH<sp/>(argc,<sp/>argv)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>INITIALIZE<sp/>the<sp/>node<sp/>&quot;final_robot&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>first<sp/>publisher<sp/>TO<sp/>&quot;move_base/goal&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>second<sp/>publisher<sp/>TO<sp/>&quot;move_base/cancel&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>third<sp/>publisher<sp/>TO<sp/>&quot;cmd_vel&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>first<sp/>subscriber<sp/>TO<sp/>&quot;/move_base/feedback&quot;<sp/>WITH<sp/>currentStatus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>second<sp/>subscriber<sp/>TO<sp/>&quot;/move_base/goal&quot;<sp/>WITH<sp/>currentGoal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>third<sp/>subscriber<sp/>TO<sp/>&quot;/scan&quot;<sp/>WITH<sp/>drivingAssistance</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>INITIALIZE<sp/>spinner<sp/>WITH<sp/>3<sp/>threads</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>START<sp/>spinner</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CALL<sp/>userInterface</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>STOP<sp/>spinner</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CALL<sp/>ros::shutdown</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CALL<sp/>ros::waitForShutdown</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RETURN<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">&lt;/code&gt;&lt;/pre&gt;</highlight></codeline>
+<codeline><highlight class="normal">##<sp/>Documentation</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>documentation<sp/>for<sp/>this<sp/>project<sp/>is<sp/>generated<sp/>with<sp/>Doxygen.</highlight></codeline>
+<codeline><highlight class="normal">[Click<sp/>here<sp/>to<sp/>view<sp/>the<sp/>Doxygen<sp/>documentation.](https://parinazrmp.github.io/SLAM_with_Gmapping_and_Moving_Base/)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Simulation_and_Results</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">To<sp/>see<sp/>the<sp/>simulation<sp/>in<sp/>action<sp/>and<sp/>review<sp/>the<sp/>results,<sp/>please<sp/>watch<sp/>the<sp/>following<sp/>video:</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">https://user-images.githubusercontent.com/94115975/226293056-0559827e-3d23-459a-bca2-ee245631cdf8.mp4</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">![rosgraph](https://user-images.githubusercontent.com/94115975/221713615-f280fb6c-fa7d-4b0c-bf68-9f28d757a033.png)</highlight></codeline>
+<codeline></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Robot_Movement_Improvement</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">One<sp/>possible<sp/>improvement<sp/>for<sp/>the<sp/>driving<sp/>assistance<sp/>feature<sp/>is<sp/>to<sp/>implement<sp/>a<sp/>smart<sp/>algorithm<sp/>that<sp/>guides<sp/>the<sp/>robot<sp/>in<sp/>the<sp/>right<sp/>direction<sp/>when<sp/>it<sp/>encounters<sp/>an<sp/>obstacle,<sp/>instead<sp/>of<sp/>merely<sp/>stopping<sp/>it.<sp/>This<sp/>enhancement<sp/>would<sp/>improve<sp/>the<sp/>user<sp/>experience<sp/>and<sp/>make<sp/>the<sp/>driving<sp/>assistance<sp/>more<sp/>intuitive<sp/>and<sp/>efficient.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Feel<sp/>free<sp/>to<sp/>explore<sp/>and<sp/>modify<sp/>the<sp/>code<sp/>to<sp/>implement<sp/>additional<sp/>improvements<sp/>or<sp/>functionalities<sp/>based<sp/>on<sp/>your<sp/>specific<sp/>requirements<sp/>and<sp/>use<sp/>cases.</highlight></codeline>
+<codeline></codeline>
+    </programlisting>
+    <location file="README.md"/>
+  </compounddef>
+</doxygen>
