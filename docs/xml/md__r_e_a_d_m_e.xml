@@ -1,0 +1,208 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.17">
+  <compounddef id="md__r_e_a_d_m_e" kind="page">
+    <compoundname>md_README</compoundname>
+    <title>SLAM with Gmapping and Moving Base</title>
+    <briefdescription>
+<para>Table of Contents </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Table of Contents</para>
+<para>Welcome to the SLAM with Gmapping and Moving Base project! This repository contains a simulation of a robot using ROS (Robot Operating System) with advanced capabilities like simultaneous localization and mapping (SLAM) and autonomous movement. The robot is equipped with laser scanners for obstacle detection and can be controlled through various interfaces, including user input, keyboard control, and driving assistance. <linebreak/>
+</para>
+<para>Control of a robot in a simulated environment.</para>
+<para>&lt;details&gt;</para>
+<para><orderedlist>
+<listitem>
+<para><ulink url="#Introduction">Introduction</ulink> </para>
+</listitem>
+<listitem>
+<para><ulink url="#Installation_and_Running">Installation_and_Running</ulink> </para>
+</listitem>
+<listitem>
+<para><ulink url="#Fauctionality">Fauctionality</ulink> </para>
+</listitem>
+<listitem>
+<para><ulink url="#How_it_works">How_it_works</ulink> </para>
+</listitem>
+<listitem>
+<para><ulink url="#PseudoCode">PseudoCode</ulink> </para>
+</listitem>
+<listitem>
+<para><ulink url="#Documentation">Documentation</ulink> </para>
+</listitem>
+<listitem>
+<para><ulink url="#Simulation_and_Results">Simulation_and_Results</ulink> </para>
+</listitem>
+<listitem>
+<para><ulink url="#Improving_Robot_Movement">Improving_Robot_Movement</ulink> </para>
+</listitem>
+</orderedlist>
+&lt;/details&gt;</para>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md1">
+<title>Introduction</title>
+<para>The goal of this project is to develop an autonomous robot capable of navigating through a predefined map using SLAM techniques. The robot&apos;s movements can be controlled in different ways to facilitate easy interaction and testing. This README will guide you through the installation process and explain how to use the different functionalities provided.<linebreak/>
+</para>
+<para>This program manages a robot, endowed with laser scanners, which should move autonomously inside a map.<linebreak/>
+ You can use the user interface to: <orderedlist>
+<listitem>
+<para>Let the robot autonomously reach a x,y coordinate inserted by the command line. </para>
+</listitem>
+<listitem>
+<para>Drive the robot with the keyboard. </para>
+</listitem>
+<listitem>
+<para>Drive the robot with the keyboard availing of simple driving assistance. </para>
+</listitem>
+</orderedlist>
+</para>
+<para>The map is this one:<linebreak/>
+ </para>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md2">
+<title>Gazebo:</title>
+<para><image type="html" name="221689972-e9425967-7ca6-4488-aab5-f66a1d31d0a5.png" inline="yes"></image>
+ </para>
+</sect2>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md3">
+<title>Rviz:</title>
+<para><image type="html" name="221690077-f9f397e6-4ba1-4c01-b25a-99ee7c71c638.png" inline="yes"></image>
+ </para>
+</sect2>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md4">
+<title>Installation_and_Running</title>
+<para>To get started, you need to install the ROS Navigation package, ROS move_base package, and ROS Gmapping package. Run the following commands to install the required packages:</para>
+<para>Installing the ROS Navigation package: <preformatted><programlisting><codeline><highlight class="normal">sudo<sp/>apt-get<sp/>install<sp/>ros-noetic-navigation</highlight></codeline>
+</programlisting></preformatted> <preformatted><programlisting><codeline><highlight class="normal">sudo<sp/>apt-get<sp/>install<sp/>ros-noetic-move-base</highlight></codeline>
+</programlisting></preformatted> <preformatted><programlisting><codeline><highlight class="normal">sudo<sp/>apt-get<sp/>install<sp/>ros-noetic-gmapping<sp/></highlight></codeline>
+</programlisting></preformatted></para>
+<para>Once the packages are installed, clone this repository into your desired location using the following command:</para>
+<para><preformatted><programlisting><codeline><highlight class="normal">git<sp/>clone<sp/>https://github.com/ParinazRmp/SLAM_with_Gmapping_and_Moving_Base.git<sp/></highlight></codeline>
+</programlisting></preformatted></para>
+<para>Move the &quot;final_assignment&quot; folder into the &quot;src&quot; folder of your ROS workspace. Navigate to the root folder of your ROS workspace and run the command: <preformatted><programlisting><codeline><highlight class="normal">catkin_make</highlight></codeline>
+</programlisting></preformatted></para>
+<para>Make sure you have the xterm tool installed on your system. If not, install it using the command:</para>
+<para><preformatted><programlisting><codeline><highlight class="normal">sudo<sp/>apt<sp/>install<sp/>xterm</highlight></codeline>
+</programlisting></preformatted></para>
+<para>Now you&apos;re ready to launch the simulation. Open a terminal and run the following command:</para>
+<para><preformatted><programlisting><codeline><highlight class="normal">roslaunch<sp/>final_assignment<sp/>final_assignment.launch</highlight></codeline>
+</programlisting></preformatted></para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md5">
+<title>Fauctionality</title>
+<para>The robot simulation provides the following functionalities:</para>
+<para><orderedlist>
+<listitem><para>Autonomous Navigation: You can command the robot to autonomously navigate to specific x,y coordinates by providing them through the command line.</para>
+</listitem><listitem><para>Keyboard Control: You can manually control the robot&apos;s movement using keyboard inputs. A list of available commands will be displayed in the console.</para>
+</listitem><listitem><para>Driving Assistance: The robot can be driven with the keyboard while benefiting from a driving assistance feature. The assistance system uses laser scanner data to detect obstacles and helps prevent collisions.</para>
+</listitem></orderedlist>
+</para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md6">
+<title>How_it_works</title>
+<para>The simulation uses the &quot;simulation_gmapping.launch&quot; file to run the simulated environment and the &quot;move_base.launch&quot; file to execute the move_base action. The move_base action provides topics such as <itemizedlist>
+<listitem>
+<para>move_base/goal to publish the goal position; </para>
+</listitem>
+<listitem>
+<para>move_base/feedback to receive the feedback; </para>
+</listitem>
+<listitem>
+<para>move_base/cancel to cancel the current goal. </para>
+</listitem>
+</itemizedlist>
+</para>
+<para>The simulation uses the &quot;simulation_gmapping.launch&quot; file to run the simulated environment and the &quot;move_base.launch&quot; file to execute the move_base action. The move_base action provides topics such as &quot;move_base/goal&quot; for publishing the goal position, &quot;move_base/feedback&quot; for receiving feedback, and &quot;move_base/cancel&quot; for canceling the current goal.</para>
+<para>The simulation employs three subscribers that run concurrently using the ROS AsyncSpinner class, enabling a multi-threaded architecture. These subscribers are responsible for:</para>
+<para><itemizedlist>
+<listitem><para>Monitoring the feedback from the robot&apos;s movement and checking if the goal position has been reached.</para>
+</listitem><listitem><para>Tracking the current goal coordinates.</para>
+</listitem><listitem><para>Processing laser scanner data and providing driving assistance if enabled. The robot can autonomously navigate to a goal position, cancel the current goal, or be manually driven using keyboard commands.</para>
+</listitem></itemizedlist>
+</para>
+<sect2 id="md__r_e_a_d_m_e_1autotoc_md7">
+<title>PseudoCode</title>
+<para>The core behavior of the program can be described using the following pseudocode: <preformatted><programlisting><codeline><highlight class="normal">FUNCTION<sp/>manualDriving</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>WHILE<sp/>user<sp/>input<sp/>is<sp/>not<sp/>to<sp/>quit</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TAKE<sp/>user<sp/>input<sp/>through<sp/>the<sp/>keyboard</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXECUTE<sp/>corresponding<sp/>task</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PUBLISH<sp/>new<sp/>robot<sp/>velocity</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>WHILE</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>drivingAssistance<sp/>WITH<sp/>(msg)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COMPUTE<sp/>minimum<sp/>distance<sp/>on<sp/>the<sp/>right</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COMPUTE<sp/>minimum<sp/>distance<sp/>in<sp/>the<sp/>middle</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COMPUTE<sp/>minimum<sp/>distance<sp/>on<sp/>the<sp/>left</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IF<sp/>driving<sp/>assistance<sp/>is<sp/>enabled<sp/>AND<sp/>the<sp/>robot<sp/>is<sp/>going<sp/>against<sp/>a<sp/>wall<sp/>THEN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>SET<sp/>robot<sp/>velocity<sp/>TO<sp/>0</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>PUBLISH<sp/>robot<sp/>velocity</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>IF</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IF<sp/>a<sp/>goal<sp/>position<sp/>is<sp/>set<sp/>THEN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>COMPUTE<sp/>the<sp/>time<sp/>elapsed</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>IF<sp/>the<sp/>time<sp/>elapsed<sp/>IS<sp/>GREATER<sp/>THAN<sp/>120<sp/>seconds<sp/>THEN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DELETE<sp/>current<sp/>goal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>END<sp/>IF</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>IF</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>currentStatus<sp/>WITH<sp/>(msg)<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>current<sp/>robot<sp/>position</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>COMPUTE<sp/>the<sp/>difference<sp/>between<sp/>the<sp/>current<sp/>robot<sp/>position<sp/>and<sp/>the<sp/>current<sp/>goal<sp/>position</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>IF<sp/>the<sp/>difference<sp/>IS<sp/>LESS<sp/>THAN<sp/>0.5<sp/>THEN</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>STOP<sp/>to<sp/>compute<sp/>the<sp/>elapsed<sp/>time</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>IF</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>currentGoal<sp/>WITH<sp/>(msg)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>current<sp/>goal<sp/>position</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>userInterface<sp/></highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>WHILE<sp/>user<sp/>input<sp/>is<sp/>not<sp/>to<sp/>quit</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>TAKE<sp/>user<sp/>input<sp/>through<sp/>the<sp/>keyboard</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>EXECUTE<sp/>corresponding<sp/>task</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>END<sp/>WHILE</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">FUNCTION<sp/>main<sp/>WITH<sp/>(argc,<sp/>argv)</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>INITIALIZE<sp/>the<sp/>node<sp/>&quot;final_robot&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>first<sp/>publisher<sp/>TO<sp/>&quot;move_base/goal&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>second<sp/>publisher<sp/>TO<sp/>&quot;move_base/cancel&quot;</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>third<sp/>publisher<sp/>TO<sp/>&quot;cmd_vel&quot;</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>first<sp/>subscriber<sp/>TO<sp/>&quot;/move_base/feedback&quot;<sp/>WITH<sp/>currentStatus</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>second<sp/>subscriber<sp/>TO<sp/>&quot;/move_base/goal&quot;<sp/>WITH<sp/>currentGoal</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>SET<sp/>the<sp/>third<sp/>subscriber<sp/>TO<sp/>&quot;/scan&quot;<sp/>WITH<sp/>drivingAssistance</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>INITIALIZE<sp/>spinner<sp/>WITH<sp/>3<sp/>threads</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>START<sp/>spinner</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CALL<sp/>userInterface</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>STOP<sp/>spinner</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CALL<sp/>ros::shutdown</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>CALL<sp/>ros::waitForShutdown</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/><sp/><sp/><sp/>RETURN<sp/>0</highlight></codeline>
+<codeline><highlight class="normal">END<sp/>FUNCTION</highlight></codeline>
+</programlisting></preformatted> ## Documentation</para>
+<para>The documentation for this project is generated with Doxygen. <ulink url="https://parinazrmp.github.io/SLAM_with_Gmapping_and_Moving_Base/">Click here to view the Doxygen documentation.</ulink></para>
+</sect2>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md8">
+<title>Simulation_and_Results</title>
+<para>To see the simulation in action and review the results, please watch the following video:</para>
+<para><ulink url="https://user-images.githubusercontent.com/94115975/226293056-0559827e-3d23-459a-bca2-ee245631cdf8.mp4">https://user-images.githubusercontent.com/94115975/226293056-0559827e-3d23-459a-bca2-ee245631cdf8.mp4</ulink></para>
+<para><image type="html" name="221713615-f280fb6c-fa7d-4b0c-bf68-9f28d757a033.png" inline="yes"></image>
+</para>
+</sect1>
+<sect1 id="md__r_e_a_d_m_e_1autotoc_md9">
+<title>Robot_Movement_Improvement</title>
+<para>One possible improvement for the driving assistance feature is to implement a smart algorithm that guides the robot in the right direction when it encounters an obstacle, instead of merely stopping it. This enhancement would improve the user experience and make the driving assistance more intuitive and efficient.</para>
+<para>Feel free to explore and modify the code to implement additional improvements or functionalities based on your specific requirements and use cases. </para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
